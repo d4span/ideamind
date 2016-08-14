@@ -2,9 +2,9 @@ language: clojure
 
 sudo: required
 
-before_script: lein modules install
+before_script: lein modules install :dev
 
-script: lein modules test
+script: lein modules test :dev
 
 jdk:
   - oraclejdk8
