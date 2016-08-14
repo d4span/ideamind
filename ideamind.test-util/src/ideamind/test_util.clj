@@ -12,8 +12,8 @@
                      first)
          failure (:failure data)
          result  (nil? failure)]
-     (if (not result)
-       (println failure))
+     (if data
+       (println sym (:clojure.spec.test.check/ret data)))
      (if (empty? outcome)
        (println "No spec found for" sym))
      (and result (not (empty? outcome))))))
