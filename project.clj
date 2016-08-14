@@ -10,4 +10,5 @@
 
   :modules {:versions {org.clojure/clojure                          "1.9.0-alpha10"
                        com.gfredericks.forks.org.clojure/test.check "0.10.0-PREVIEW-1"
-                       com.stuartsierra/component                   "0.3.1"}})
+                       com.stuartsierra/component                   "0.3.1"
+                       org.clojure/core.async                       "0.2.385"}})

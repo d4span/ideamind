@@ -1,4 +1,4 @@
-(defproject ideamind/ideamind.model "0.1.0-SNAPSHOT"
+(defproject ideamind/ideamind.presentation "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -11,7 +11,9 @@
 
   :dependencies [[org.clojure/clojure "_"]
                  [com.stuartsierra/component "_"]
-                 [ideamind/ideamind.data :version]]
+                 [ideamind/ideamind.model :version]
+                 [ideamind/ideamind.util :version]
+                 [org.clojure/core.async "_"]]
 
   :global-vars {*warn-on-reflection* true
                 *unchecked-math*     true
