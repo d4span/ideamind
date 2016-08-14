@@ -1,6 +1,6 @@
 language: clojure
 
-sudo: required
+# sudo: required
 
 script: lein modules do test, install
 
