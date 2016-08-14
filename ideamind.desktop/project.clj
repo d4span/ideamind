@@ -17,4 +17,6 @@
 
   :global-vars {*warn-on-reflection* true
                 *unchecked-math*     true
-                *assert*             true})
+                *assert*             true}
+
+  :main ideamind.desktop.core)
