@@ -1,35 +1,29 @@
 (ns ideamind.javafx.core-test
   (:require
     [clojure.test :refer :all]
-    [ideamind.presentation.core :as ipc]
-    [clojure.core.async :as a]
     [ideamind.javafx.core :as ivc]
     [clojure.test.check.clojure-test :as tcct]
     [clojure.test.check.properties :as prop]
-    [clojure.test.check.generators :as gen]
-    [ideamind.test-util :as it])
-  (:import (javafx.scene.layout Pane)
-           (com.stuartsierra.component Lifecycle)))
+    [ideamind.test-util :as it]
+    [clojure.spec :as s]
+    [clojure.spec.test :as st]
+    [clojure.test :as t]
+    [ideamind.test-util :as tu]))
+
+(defn fixture [f]
+  (-> (st/enumerate-namespace 'ideamind.javafx.core)
+      st/instrument)
+  (f))
+
+(t/use-fixtures :once fixture)
 
 (tcct/defspec view
               it/test-iterations
-              (prop/for-all [show-ui gen/boolean]
-                            (let [view->pres              (a/chan)
-                                  pres->view              (a/chan)
-                                  presenter               (ipc/->Presenter view->pres
-                                                                           pres->view)
-                                  ^Lifecycle view         (assoc (ivc/->View show-ui) :presenter
-                                                                                      presenter)
-                                  ^Lifecycle started-view (.start view)
-                                  ^Pane pane              (:main-pane started-view)]
-                              (is (= view->pres (:event-out started-view)))
-                              (is (= pres->view (:data-in started-view)))
-                              (is (= presenter (:presenter view)))
-                              (is (= show-ui (:visible started-view)))
-                              (is (not (nil? pane)))
-                              (if (nil? (.stop started-view))
-                                true
-                                true))))
+              (prop/for-all [view (s/gen ::ivc/View)]
+                            (s/valid? ::ivc/View-started (.start (-> view (assoc :visible false))))))
+
+(t/deftest setup-ui
+  (t/is (tu/check 'ideamind.javafx.core/setup-ui)))
 
 
 
