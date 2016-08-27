@@ -6,13 +6,11 @@
     [clojure.test.check.properties :as prop]
     [ideamind.test-util :as it]
     [clojure.spec :as s]
-    [clojure.spec.test :as st]
     [clojure.test :as t]
     [ideamind.test-util :as tu]))
 
 (defn fixture [f]
-  (-> (st/enumerate-namespace 'ideamind.javafx.core)
-      st/instrument)
+  (tu/instrument-namespaces)
   (f))
 
 (t/use-fixtures :once fixture)

@@ -1,7 +1,13 @@
 (ns ideamind.test-util
-  (:require [clojure.spec.test :as st]))
+  (:require [clojure.spec.test :as st])
+  (:import (clojure.lang Namespace)))
 
 (def test-iterations 40)
+
+(defn instrument-namespaces []
+  (let [syms (map (fn [^Namespace ns] (.getName ns)) (all-ns))]
+    (map #(-> (st/enumerate-namespace %) st/instrument)
+         syms)))
 
 (defn check
   ([sym]

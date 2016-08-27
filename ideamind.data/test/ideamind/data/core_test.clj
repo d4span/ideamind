@@ -1,12 +1,10 @@
 (ns ideamind.data.core-test
   (:require [clojure.test :as t]
-            [clojure.spec.test :as st]
             [ideamind.test-util :as tu]
             [ideamind.data.core]))
 
 (defn fixture [f]
-  (-> (st/enumerate-namespace 'ideamind.data.core)
-      st/instrument)
+  (tu/instrument-namespaces)
   (f))
 
 (t/use-fixtures :once fixture)
