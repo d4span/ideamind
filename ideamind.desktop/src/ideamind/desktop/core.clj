@@ -4,9 +4,9 @@
             [ideamind.presentation.core :as ipc]
             [ideamind.model.core :as imc]
             [ideamind.data.core :as idc]
-            [clojure.core.async :as a]))
-
-;(def system-config {:show-ui s/Bool})
+            [clojure.core.async :as a]
+            [clojure.spec :as s]
+            [clojure.spec.gen :as gen]))
 
 (defn ideamind-system [config]
   "Initializes the main components in order and supplies
@@ -19,6 +19,20 @@
     :view (component/using
             (view.core/->View (:show-ui config))
             [:presenter])))
+
+(s/def ::model ::imc/Model)
+(s/def ::presenter ::ipc/Presenter)
+(s/def ::view ::view.core/View)
+
+(s/def ::system (s/keys :req-un [::model ::presenter ::view]
+                        :gen (fn [] (gen/bind (gen/tuple (s/gen ::model)
+                                                         (s/gen ::presenter)
+                                                         (s/gen ::view))
+                                              (fn [[model presenter view]]
+                                                (gen/return (component/system-map
+                                                              :model model
+                                                              :presenter presenter
+                                                              :view view)))))))
 
 (defn -main [& _]
   (component/start (ideamind-system {:show-ui true})))
