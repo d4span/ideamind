@@ -16,5 +16,13 @@
 
 (tcct/defspec presenter-setup
               it/test-iterations
-              (prop/for-all [presenter (s/gen ::pres/Presenter)]
-                            (is (s/valid? ::pres/Presenter (.start presenter)))))
+              (prop/for-all [presenter (s/gen ::pres/Presenter)
+                             model     (s/gen ::pres/model)]
+                            (is (s/valid? ::pres/Presenter-started (-> presenter
+                                                                       (assoc :model model)
+                                                                       .start)))))
+
+(tcct/defspec presenter-start
+              it/test-iterations
+              (prop/for-all [presenter (s/gen ::pres/Presenter-started)]
+                            (is (s/valid? ::pres/Presenter-started (.start presenter)))))

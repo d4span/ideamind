@@ -21,10 +21,15 @@
 (s/def ::data-out ::async/channel)
 (s/def ::model ::model/Model-started)
 
-(s/def ::Presenter (s/spec (s/keys :req-un [::event-in ::data-out ::model])
-                           :gen (fn [] (gen/bind (gen/tuple (s/gen ::model/Model-started)
-                                                            (s/gen ::event-in)
+(s/def ::Presenter (s/spec (s/keys :req-un [::event-in ::data-out])
+                           :gen (fn [] (gen/bind (gen/tuple (s/gen ::event-in)
                                                             (s/gen ::data-out))
-                                                 (fn [[model event-in data-out]]
-                                                   (gen/return (-> (->Presenter event-in data-out)
-                                                                   (assoc :model model))))))))
+                                                 (fn [[event-in data-out]]
+                                                   (gen/return (-> (->Presenter event-in data-out))))))))
+
+(s/def ::Presenter-started (s/spec (s/and ::Presenter
+                                          (s/keys :req-un [::model]))
+                                   :gen (fn [] (gen/bind (gen/tuple (s/gen ::model/Model-started)
+                                                                    (s/gen ::Presenter))
+                                                         (fn [[model presenter]]
+                                                           (gen/return (assoc presenter :model model)))))))

@@ -5,7 +5,8 @@
             [clojure.test.check.clojure-test :as ctcc]
             [clojure.test.check.properties :as prop]
             [clojure.test.check.generators :as gen]
-            [ideamind.test-util :as it])
+            [ideamind.test-util :as it]
+            [clojure.spec.test :as stest])
   (:import [ideamind.model.core Model]
            [ideamind.presentation.core Presenter]
            [ideamind.javafx.core View]))

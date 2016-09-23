@@ -34,5 +34,11 @@
                                                               :presenter presenter
                                                               :view view)))))))
 
+(s/fdef ideamind-system
+        :args (s/cat :visible boolean?)
+        :ret ::system
+        :fn #(= (-> % :args :visible)
+                (-> % :ret :view :show-ui)))
+
 (defn -main [& _]
   (component/start (ideamind-system {:show-ui true})))
