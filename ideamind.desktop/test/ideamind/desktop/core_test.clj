@@ -2,34 +2,22 @@
   (:require [clojure.test :refer :all]
             [ideamind.desktop.core :as core]
             [com.stuartsierra.component :as component]
-            [clojure.test.check.clojure-test :as ctcc]
-            [clojure.test.check.properties :as prop]
-            [clojure.test.check.generators :as gen]
-            [ideamind.test-util :as it]
-            [clojure.spec.test :as stest])
-  (:import [ideamind.model.core Model]
-           [ideamind.presentation.core Presenter]
-           [ideamind.javafx.core View]))
+            [ideamind.test-util :as tu]
+            [clojure.test :as t]
+            [clojure.spec :as s]))
 
-(ctcc/defspec system-initialization
-              it/test-iterations
-              (prop/for-all [show-ui gen/boolean]
-                            (let [system    (core/ideamind-system {:show-ui show-ui})
-                                  model     (:model system)
-                                  presenter (:presenter system)
-                                  ui        (:view system)]
-                              (is (instance? Model model))
-                              (is (instance? Presenter presenter))
-                              (is (instance? View ui)))))
+(defn fixture [f]
+  (tu/instrument-namespaces)
+  (f))
 
-(ctcc/defspec system-startup
-              it/test-iterations
-              (prop/for-all [show-ui gen/boolean]
-                            (let [system    (core/ideamind-system {:show-ui show-ui})
-                                  started   (component/start system)
-                                  model     (:model started)
-                                  presenter (:presenter started)
-                                  view      (:view started)]
-                              (is (= model (:model presenter)))
-                              (is (= presenter (:presenter view)))
-                              (component/stop started))))
+(t/use-fixtures :once fixture)
+
+(t/deftest setup-ui
+  (t/is (tu/check 'ideamind.javafx.core/setup-ui)))
+
+(t/deftest system-start
+  (let [system         (core/ideamind-system {:show-ui false})
+        started-system (component/start system)]
+    (t/is (s/valid? :ideamind.model.core/Model-started (:model started-system)))
+    (t/is (s/valid? :ideamind.presentation.core/Presenter-started (:presenter started-system)))
+    (t/is (s/valid? :ideamind.javafx.core/View-started (:view started-system)))))

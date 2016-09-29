@@ -15,13 +15,13 @@
 
 (t/use-fixtures :once fixture)
 
-(tcct/defspec view
+(tcct/defspec view-start
               it/test-iterations
-              (prop/for-all [view (s/gen ::ivc/View)]
-                            (s/valid? ::ivc/View-started (.start (-> view (assoc :visible false))))))
+              (prop/for-all [view (s/gen ::ivc/View)
+                             pres (s/gen ::ivc/presenter)]
+                            (s/valid? ::ivc/View-started (.start (-> view
+                                                                     (assoc :visible false)
+                                                                     (assoc :presenter pres))))))
 
 (t/deftest setup-ui
   (t/is (tu/check 'ideamind.javafx.core/setup-ui)))
-
-
-
