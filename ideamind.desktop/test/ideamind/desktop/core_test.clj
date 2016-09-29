@@ -13,7 +13,7 @@
 (t/use-fixtures :once fixture)
 
 (t/deftest setup-ui
-  (t/is (tu/check 'ideamind.javafx.core/setup-ui)))
+  (t/is (tu/check 'ideamind.desktop.core/ideamind-system)))
 
 (t/deftest system-start
   (let [system         (core/ideamind-system {:show-ui false})
