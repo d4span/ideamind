@@ -1,4 +1,4 @@
-(defproject ideamind.webfrontend "0.1.0-SNAPSHOT"
+(defproject ideamind/ideamind.webfrontend "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -54,7 +54,7 @@
              ;; :server-port 3449 ;; default
              ;; :server-ip "127.0.0.1"
 
-             :css-dirs ["resources/public/css"] ;; watch and update CSS
+             :css-dirs ["resources/public/css"]} ;; watch and update CSS
 
              ;; Start an nREPL server into the running figwheel process
              ;; :nrepl-port 7888
@@ -84,7 +84,7 @@
 
              ;; to configure a different figwheel logfile path
              ;; :server-logfile "tmp/logs/figwheel-logfile.log"
-             }
+
 
 
   ;; setting up nREPL for Figwheel and ClojureScript dev
@@ -101,6 +101,6 @@
                    ;; :plugins [[cider/cider-nrepl "0.12.0"]]
                    :repl-options {; for nREPL dev you really need to limit output
                                   :init (set! *print-length* 50)
-                                  :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}}
+                                  :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}}})
 
-)
+
