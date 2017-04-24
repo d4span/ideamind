@@ -8,7 +8,7 @@
 
   :profiles {:dev {:dependencies [[com.gfredericks.forks.org.clojure/test.check "_"]]}}
 
-  :modules {:versions {org.clojure/clojure                          "1.9.0-alpha13"
+  :modules {:versions {org.clojure/clojure                          "1.9.0-alpha15"
                        org.clojure/clojurescript                    "1.9.229"
                        com.gfredericks.forks.org.clojure/test.check "0.10.0-PREVIEW-1"
                        com.stuartsierra/component                   "0.3.1"
