@@ -7,7 +7,7 @@ addons:
       - oracle-java8-installer
 
 script:
-  - lein upgrade 2.7.0
+  - echo "Y" | lein upgrade 2.7.0
   - lein modules do test, install
 
 jdk:
