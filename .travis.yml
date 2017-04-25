@@ -1,6 +1,10 @@
 language: clojure
 
-# sudo: required
+sudo: false
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
 
 script: lein modules do test, install
 
