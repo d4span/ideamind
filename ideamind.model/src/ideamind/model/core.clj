@@ -1,7 +1,7 @@
 (ns ideamind.model.core
   (:require [com.stuartsierra.component :as component]
-            [clojure.spec :as s]
-            [clojure.spec.gen :as gen]
+            [clojure.spec.alpha :as s]
+            [clojure.spec.gen.alpha :as gen]
             [ideamind.data.core :as data])
   (:import (clojure.lang Atom)))
 

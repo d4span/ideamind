@@ -12,4 +12,4 @@
 
 (deftest java-vararg
   (is (tu/check 'ideamind.util.java/java-vararg
-                {::clojure.spec.test.check/opts {:num-tests tu/test-iterations}})))
+                {:clojure.spec.test.check/opts {:num-tests tu/test-iterations}})))

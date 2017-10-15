@@ -1,8 +1,8 @@
 (ns ideamind.presentation.core
   (:require [clojure.core.async :as a]
             [com.stuartsierra.component :as c]
-            [clojure.spec :as s]
-            [clojure.spec.gen :as gen]
+            [clojure.spec.alpha :as s]
+            [clojure.spec.gen.alpha :as gen]
             [ideamind.model.core :as model]
             [ideamind.util.async :as async]))
 

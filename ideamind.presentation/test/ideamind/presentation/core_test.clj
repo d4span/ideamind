@@ -4,7 +4,7 @@
             [clojure.test.check.clojure-test :as tcct]
             [ideamind.test-util :as it]
             [clojure.test.check.properties :as prop]
-            [clojure.spec :as s]
+            [clojure.spec.alpha :as s]
             [clojure.test :as t]
             [ideamind.test-util :as tu]))
 

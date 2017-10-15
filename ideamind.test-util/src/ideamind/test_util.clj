@@ -1,5 +1,5 @@
 (ns ideamind.test-util
-  (:require [clojure.spec.test :as st])
+  (:require [clojure.spec.test.alpha :as st])
   (:import (clojure.lang Namespace)))
 
 (def test-iterations 40)
@@ -11,7 +11,7 @@
 
 (defn check
   ([sym]
-   (check sym {::clojure.spec.test.check/opts {:num-tests test-iterations}}))
+   (check sym {:clojure.spec.test.check/opts {:num-tests test-iterations}}))
   ([sym params]
    (let [outcome (st/check sym params)
          data    (-> outcome

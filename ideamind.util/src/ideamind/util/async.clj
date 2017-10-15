@@ -1,8 +1,8 @@
 (ns ideamind.util.async
   (:require [clojure.core.async.impl.protocols :as async-protocols]
             [clojure.core.async :as a]
-            [clojure.spec.gen :as gen]
-            [clojure.spec :as s]))
+            [clojure.spec.gen.alpha :as gen]
+            [clojure.spec.alpha :as s]))
 
 ; Helper methods for dealing with core.async
 ; ==========================================

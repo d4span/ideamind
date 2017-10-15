@@ -1,7 +1,7 @@
 (ns ideamind.data.core
   (:require
-    [clojure.spec :as s]
-    [clojure.spec.gen :as gen]
+    [clojure.spec.alpha :as s]
+    [clojure.spec.gen.alpha :as gen]
     [clojure.test.check.generators :as tcgen]))
 
 ; Contains functionality for manipulating data.

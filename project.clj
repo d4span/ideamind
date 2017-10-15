@@ -8,7 +8,7 @@
 
   :profiles {:dev {:dependencies [[com.gfredericks.forks.org.clojure/test.check "_"]]}}
 
-  :modules {:versions {org.clojure/clojure                          "1.9.0-alpha15"
+  :modules {:versions {org.clojure/clojure                          "1.9.0-beta2"
                        org.clojure/clojurescript                    "1.9.229"
                        com.gfredericks.forks.org.clojure/test.check "0.10.0-PREVIEW-1"
                        com.stuartsierra/component                   "0.3.1"
@@ -20,5 +20,3 @@
                        binaryage/devtools                           "0.8.2"
                        figwheel-sidecar                             "0.5.8"
                        com.cemerick/piggieback                      "0.2.1"}})
-
-
