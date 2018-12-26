@@ -9,14 +9,7 @@
   :profiles {:dev {:dependencies [[com.gfredericks.forks.org.clojure/test.check "_"]]}}
 
   :modules {:versions {org.clojure/clojure                          "1.10.0"
-                       org.clojure/clojurescript                    "1.9.229"
                        com.gfredericks.forks.org.clojure/test.check "0.10.0-PREVIEW-1"
                        com.stuartsierra/component                   "0.3.1"
                        org.clojure/core.async                       "0.4.490"
-                       compojure                                    "1.5.1"
-                       ring/ring-defaults                           "0.2.1"
-                       javax.servlet/servlet-api                    "2.5"
-                       ring/ring-mock                               "0.3.0"
-                       binaryage/devtools                           "0.8.2"
-                       figwheel-sidecar                             "0.5.8"
-                       com.cemerick/piggieback                      "0.2.1"}})
+                       org.openjfx/javafx-controls                  "11"}})
