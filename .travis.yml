@@ -1,17 +1,13 @@
 language: clojure
 
 sudo: false
-addons:
-  apt:
-    packages:
-      - oracle-java8-installer
 
 script:
-  - echo "Y" | lein upgrade 2.7.0
+  - echo "Y" | lein upgrade
   - lein modules do test, install
 
 jdk:
-  - oraclejdk8
+  - openjdk11
 
 before_install:
   - export DISPLAY=:99.0
