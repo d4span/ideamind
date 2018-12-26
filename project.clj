@@ -12,7 +12,7 @@
                        org.clojure/clojurescript                    "1.9.229"
                        com.gfredericks.forks.org.clojure/test.check "0.10.0-PREVIEW-1"
                        com.stuartsierra/component                   "0.3.1"
-                       org.clojure/core.async                       "0.2.391"
+                       org.clojure/core.async                       "0.4.490"
                        compojure                                    "1.5.1"
                        ring/ring-defaults                           "0.2.1"
                        javax.servlet/servlet-api                    "2.5"
