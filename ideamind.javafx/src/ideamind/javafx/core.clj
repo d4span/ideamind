@@ -4,8 +4,8 @@
             [ideamind.javafx.drawing :as ivd]
             [ideamind.javafx.core.side-effects :as ivcs]
             [ideamind.javafx.util.side-effects :as ivus]
-            [clojure.spec :as s]
-            [clojure.spec.gen :as gen])
+            [clojure.spec.alpha :as s]
+            [clojure.spec.gen.alpha :as gen])
   (:import (javafx.application Platform)
            (javafx.scene.layout Pane)))
 

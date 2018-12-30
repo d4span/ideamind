@@ -10,7 +10,9 @@
              {:dependencies [[ideamind/ideamind.test-util :version]]}}
 
   :dependencies [[org.clojure/clojure "_"]
-                 [ideamind/ideamind.presentation :version]]
+                 [ideamind/ideamind.presentation :version]
+                 [org.openjfx/javafx-controls "_"]
+                 [org.openjfx/javafx-swing "_"]]
 
   :global-vars {*warn-on-reflection* true
                 *unchecked-math*     true

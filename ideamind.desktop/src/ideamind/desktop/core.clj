@@ -5,8 +5,8 @@
             [ideamind.model.core :as imc]
             [ideamind.data.core :as idc]
             [clojure.core.async :as a]
-            [clojure.spec :as s]
-            [clojure.spec.gen :as gen]))
+            [clojure.spec.alpha :as s]
+            [clojure.spec.gen.alpha :as gen]))
 
 (defn ideamind-system [config]
   "Initializes the main components in order and supplies

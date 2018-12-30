@@ -12,4 +12,5 @@
                        com.gfredericks.forks.org.clojure/test.check "0.10.0-PREVIEW-1"
                        com.stuartsierra/component                   "0.3.1"
                        org.clojure/core.async                       "0.4.490"
-                       org.openjfx/javafx-controls                  "11"}})
+                       org.openjfx/javafx-controls                  "11.0.1"
+                       org.openjfx/javafx-swing                     "11.0.1"}})

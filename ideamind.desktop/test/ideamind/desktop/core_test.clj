@@ -4,7 +4,7 @@
             [com.stuartsierra.component :as component]
             [ideamind.test-util :as tu]
             [clojure.test :as t]
-            [clojure.spec :as s]))
+            [clojure.spec.alpha :as s]))
 
 (defn fixture [f]
   (tu/instrument-namespaces)
