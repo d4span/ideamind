@@ -6,11 +6,11 @@
 
   :plugins [[lein-modules "0.3.11"]]
 
-  :profiles {:dev {:dependencies [[com.gfredericks.forks.org.clojure/test.check "_"]]}}
+  :profiles {:dev {:dependencies [[org.clojure/test.check "_"]]}}
 
-  :modules {:versions {org.clojure/clojure                          "1.10.0"
-                       com.gfredericks.forks.org.clojure/test.check "0.10.0-PREVIEW-1"
-                       com.stuartsierra/component                   "0.3.1"
-                       org.clojure/core.async                       "0.4.490"
-                       org.openjfx/javafx-controls                  "11.0.1"
-                       org.openjfx/javafx-swing                     "11.0.1"}})
+  :modules {:versions {org.clojure/clojure                          "1.10.3"
+                       org.clojure/test.check                       "1.1.1"
+                       com.stuartsierra/component                   "1.1.0"
+                       org.clojure/core.async                       "1.5.648"
+                       org.openjfx/javafx-controls                  "17.0.2"
+                       org.openjfx/javafx-swing                     "17.0.2"}})

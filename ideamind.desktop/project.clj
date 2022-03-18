@@ -14,7 +14,7 @@
                  [ideamind/ideamind.presentation :version]
                  [ideamind/ideamind.javafx :version]
                  [ideamind/ideamind.data :version]
-                 [com.gfredericks.forks.org.clojure/test.check "_"]]
+                 [org.clojure/test.check "_"]]
 
   :global-vars {*warn-on-reflection* true
                 *unchecked-math*     true
